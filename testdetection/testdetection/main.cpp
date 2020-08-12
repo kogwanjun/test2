@@ -61,12 +61,12 @@ bool findPimples(Mat img)
 	}
 	
 	//putText(img, format("%d", pimplescount), Point(50, 30), FONT_HERSHEY_SIMPLEX, 0.8, Scalar(255, 255, 0), 2);
-	imshow("pimples dedector", img);//copyimg ¿øº»ÀÌ¹ÌÁö, img ¿©µå¸§Ã¼Å·ÀÌ¹ÌÁö, img_th ÀÌÁøÈ­ÀÌ¹ÌÁö, img_result °á°ú ÀÌ¹ÌÁö
+	imshow("pimples dedector", img);//copyimg ì›ë³¸ì´ë¯¸ì§€, img ì—¬ë“œë¦„ì²´í‚¹ì´ë¯¸ì§€, img_th ì´ì§„í™”ì´ë¯¸ì§€, img_result ê²°ê³¼ ì´ë¯¸ì§€
 	
 	cvtColor(img, img_gy, COLOR_BGR2GRAY);
 	threshold(img_gy, img_th, 0, 255, 1);
 
-	inpaint(img, img_th, inpaint_img_result, 15, INPAINT_TELEA); //circular neighborhoodÀÇ radius, 15
+	inpaint(img, img_th, inpaint_img_result, 15, INPAINT_TELEA); //circular neighborhoodì˜ radius, 15
 	fastNlMeansDenoisingColored(inpaint_img_result, denosing_img_result, 3, 3, 7, 21);//3,3,7,21
 	imshow("denosing_img_result", denosing_img_result);
 	//imshow("img_th", img_th);
@@ -86,7 +86,7 @@ int main()
 	}
 	copyimg=src.clone();
 
-	imshow("¿øº»ÀÌ¹ÌÁö", copyimg);
+	imshow("ì›ë³¸ì´ë¯¸ì§€", copyimg);
 	findPimples(src);
 	
 	waitKey(0);
@@ -136,7 +136,7 @@ int main()
 				}
 			}
 		}
-		circle(image, Point(faceround[2].x(), faceround[2].y()), 10, Scalar(255, 0, 0), 1, 8, 0);
+		circle(image, Point(faceround[2].x(), faceround[2].y()), 10, Scalar(255, 0, 0), 1, 8, 0);//dlib::point ->cv::mat pointë¡œ ì˜®ê¸°ëŠ” ê³³ ê°œê¿€
 		// Display it all on the screen
 		win.clear_overlay();
 		win.set_image(cimg);
