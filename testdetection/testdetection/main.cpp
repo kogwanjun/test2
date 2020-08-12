@@ -137,6 +137,7 @@ int main()
 			}
 		}
 		circle(image, Point(faceround[2].x(), faceround[2].y()), 10, Scalar(255, 0, 0), 1, 8, 0);//dlib::point ->cv::mat point로 옮기는 곳 개꿀
+		//이건 비쥬얼에서 수정한곳 입니다.
 		// Display it all on the screen
 		win.clear_overlay();
 		win.set_image(cimg);
